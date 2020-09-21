@@ -16,8 +16,8 @@ create table snack
 create table snack_ingredient
 (
    id integer not null auto_increment,
-   id_ingredient integer not null,
    id_snack integer not null,
+   id_ingredient integer not null,
    quantity integer not null,
    primary key(id),
    foreign key(id_ingredient) references ingredient(id),

@@ -1,10 +1,11 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class SnackIngredient {
 	
+	@JsonIgnore
 	private int id;
-	
-	private Snack snack;
 	
 	private Ingredient ingredient;
 	
@@ -16,14 +17,6 @@ public class SnackIngredient {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public Snack getSnack() {
-		return snack;
-	}
-
-	public void setSnack(Snack snack) {
-		this.snack = snack;
 	}
 
 	public Ingredient getIngredient() {

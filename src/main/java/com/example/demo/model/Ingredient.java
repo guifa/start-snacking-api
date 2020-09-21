@@ -1,7 +1,10 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Ingredient {
 	
+	@JsonIgnore
 	private int id;
 	
 	private String name;
