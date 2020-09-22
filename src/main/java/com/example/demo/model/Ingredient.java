@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Ingredient {
@@ -7,8 +9,10 @@ public class Ingredient {
 	@JsonIgnore
 	private int id;
 	
+	@NotNull
 	private String name;
 	
+	@NotNull
 	private double price;
 	
 	public int getId() {

@@ -2,10 +2,13 @@ package com.example.demo.model;
 
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
 public class Snack {
 	
 	private int id;
 	
+	@NotNull
 	private String name;
 	
 	private List<SnackIngredient> snackIngredients;

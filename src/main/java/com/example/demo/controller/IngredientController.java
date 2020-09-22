@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,7 +32,7 @@ public class IngredientController {
     }
 	
 	@PostMapping
-	public ResponseEntity<Ingredient> save(@RequestBody Ingredient ingredient, HttpServletResponse response) {
+	public ResponseEntity<Ingredient> save(@Valid @RequestBody Ingredient ingredient, HttpServletResponse response) {
 		ingredientService.save(ingredient, response);
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(ingredient);
