@@ -36,7 +36,7 @@ public class SnackController {
 	public ResponseEntity<Snack> findById(@PathVariable Integer snackId) {
         Snack snack = snackService.findById(snackId);
 		
-		return ResponseEntity.ok(snack);
+		return snack != null ? ResponseEntity.ok(snack) : ResponseEntity.notFound().build();
     }
 	
 	@PostMapping
