@@ -1,8 +1,8 @@
 package com.example.demo.rule;
 
 import java.util.HashMap;
+import java.util.List;
 
-import com.example.demo.model.Snack;
 import com.example.demo.model.SnackIngredient;
 
 public class LightRule implements DiscountRule{
@@ -11,9 +11,9 @@ public class LightRule implements DiscountRule{
 	static final int BACON = 2;
 	
 	@Override
-	public boolean isApplicable(Snack snack) {
+	public boolean isApplicable(List<SnackIngredient> snackIngredients) {
 		HashMap<Integer, Integer> ingredients = new HashMap<Integer, Integer>();
-		for (SnackIngredient snackIngredient : snack.getSnackIngredients()) {
+		for (SnackIngredient snackIngredient : snackIngredients) {
 			ingredients.put(snackIngredient.getIngredient().getId(), snackIngredient.getQuantity());
 		}
 		if (ingredients.containsKey(ALFACE) && !ingredients.containsKey(BACON)) {
@@ -23,8 +23,12 @@ public class LightRule implements DiscountRule{
 	}
 
 	@Override
-	public double calculateDiscount(Snack snack) {
-		return 0.1 * snack.getTotalPrice();
+	public double calculateDiscount(List<SnackIngredient> snackIngredients) {
+		double totalPrice = 0d;
+		for (SnackIngredient snackIngredient : snackIngredients) {
+			totalPrice += snackIngredient.getIngredient().getPrice();
+		}
+		return 0.1 * totalPrice;
 	}
 
 }

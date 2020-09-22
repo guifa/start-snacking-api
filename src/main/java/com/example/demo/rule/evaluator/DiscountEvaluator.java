@@ -1,9 +1,11 @@
 package com.example.demo.rule.evaluator;
 
-import com.example.demo.model.Snack;
+import java.util.List;
+
+import com.example.demo.model.SnackIngredient;
 
 public interface DiscountEvaluator {
 	
-	double calculateDiscount(Snack snack);
+	double calculateDiscount(List<SnackIngredient> snackIngredients);
 
 }

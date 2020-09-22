@@ -1,11 +1,13 @@
 package com.example.demo.rule;
 
-import com.example.demo.model.Snack;
+import java.util.List;
+
+import com.example.demo.model.SnackIngredient;
 
 public interface DiscountRule {
 	
-	boolean isApplicable(Snack snack);
+	boolean isApplicable(List<SnackIngredient> snackIngredients);
 	
-	double calculateDiscount(Snack snack);
+	double calculateDiscount(List<SnackIngredient> snackIngredients);
 
 }

@@ -1,6 +1,7 @@
 package com.example.demo.rule;
 
-import com.example.demo.model.Snack;
+import java.util.List;
+
 import com.example.demo.model.SnackIngredient;
 
 public class LotOfMeatRule implements DiscountRule {
@@ -9,8 +10,8 @@ public class LotOfMeatRule implements DiscountRule {
 	private SnackIngredient snackIngredient;
 
 	@Override
-	public boolean isApplicable(Snack snack) {
-		for (SnackIngredient snackIngredient : snack.getSnackIngredients()) {
+	public boolean isApplicable(List<SnackIngredient> snackIngredients) {
+		for (SnackIngredient snackIngredient : snackIngredients) {
 			if (snackIngredient.getIngredient().getId() == CARNE && snackIngredient.getQuantity() >= 3) {
 				this.snackIngredient = snackIngredient;
 				return true;
@@ -20,10 +21,10 @@ public class LotOfMeatRule implements DiscountRule {
 	}
 
 	@Override
-	public double calculateDiscount(Snack snack) {
+	public double calculateDiscount(List<SnackIngredient> snackIngredients) {
 		int discountMultiplier = 0;
 		double meatPrice = 0d;
-		for (SnackIngredient snackIngredient : snack.getSnackIngredients()) {
+		for (SnackIngredient snackIngredient : snackIngredients) {
 			if (snackIngredient.getIngredient().getId() == CARNE && snackIngredient.getQuantity() >= 3) {
 				discountMultiplier = snackIngredient.getQuantity() / 3;
 				meatPrice = snackIngredient.getIngredient().getPrice();

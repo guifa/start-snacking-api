@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
+import com.example.demo.rule.evaluator.DiscountCalculator;
+
 public class Snack {
 	
 	private int id;
@@ -23,7 +25,11 @@ public class Snack {
 	}
 
 	public double getTotalPrice() {
-		double totalPrice = 0.0;
+		DiscountCalculator discountCalculator = new DiscountCalculator();
+		double totalPrice = 0d;
+		double discount = 0d;
+		
+		discount = discountCalculator.calculateDiscount(snackIngredients);
 		
 		for(SnackIngredient snackIngredient: snackIngredients) {
 			if (snackIngredient.getIngredient() != null) {
@@ -31,7 +37,7 @@ public class Snack {
 			}
 		}
 		
-		return totalPrice;
+		return totalPrice - discount;
 	}
 	
 	public int getId() {
