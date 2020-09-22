@@ -4,16 +4,21 @@ import java.util.List;
 
 import com.example.demo.model.SnackIngredient;
 
-public class LotOfCheeseRule implements DiscountRule {
+public class LotOfIngredientRule implements DiscountRule {
 	
-	private static final int QUEIJO = 5;
+	private int ingredientId;
 	
 	private SnackIngredient snackIngredient;
+	
+	public LotOfIngredientRule(int ingredientId) {
+		super();
+		this.ingredientId = ingredientId;
+	}
 
 	@Override
 	public boolean isApplicable(List<SnackIngredient> snackIngredients) {
 		for (SnackIngredient snackIngredient : snackIngredients) {
-			if (snackIngredient.getIngredient().getId() == QUEIJO && snackIngredient.getQuantity() >= 3) {
+			if (snackIngredient.getIngredient().getId() == this.ingredientId && snackIngredient.getQuantity() >= 3) {
 				this.snackIngredient = snackIngredient;
 				return true;
 			}
@@ -24,9 +29,9 @@ public class LotOfCheeseRule implements DiscountRule {
 	@Override
 	public double calculateDiscount(List<SnackIngredient> snackIngredients) {
 		int discountMultiplier = snackIngredient.getQuantity() / 3;
-		double cheesePrice = snackIngredient.getIngredient().getPrice();
+		double ingredientPrice = snackIngredient.getIngredient().getPrice();
 		
-		return discountMultiplier * cheesePrice;
+		return discountMultiplier * ingredientPrice;
 	}
 
 }
