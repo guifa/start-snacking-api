@@ -6,7 +6,7 @@ import com.example.demo.model.SnackIngredient;
 
 public class LotOfMeatRule implements DiscountRule {
 	
-	private static final int CARNE = 1;
+	private static final int CARNE = 3;
 	private SnackIngredient snackIngredient;
 
 	@Override

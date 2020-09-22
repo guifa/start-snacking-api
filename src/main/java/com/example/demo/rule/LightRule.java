@@ -26,7 +26,7 @@ public class LightRule implements DiscountRule{
 	public double calculateDiscount(List<SnackIngredient> snackIngredients) {
 		double totalPrice = 0d;
 		for (SnackIngredient snackIngredient : snackIngredients) {
-			totalPrice += snackIngredient.getIngredient().getPrice();
+			totalPrice += snackIngredient.getIngredient().getPrice() * snackIngredient.getQuantity();
 		}
 		return 0.1 * totalPrice;
 	}

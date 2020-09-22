@@ -30,6 +30,10 @@ public class SnackService {
 		return snackMapper.findAll();
 	}
 	
+	public Snack findById(Integer snackId) {
+		return snackMapper.findById(snackId);
+	}
+	
 	public Snack save(Snack snack, HttpServletResponse response) {
 		snackMapper.save(snack);
 		
