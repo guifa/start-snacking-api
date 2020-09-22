@@ -7,6 +7,7 @@ import com.example.demo.model.SnackIngredient;
 public class LotOfCheeseRule implements DiscountRule {
 	
 	private static final int QUEIJO = 5;
+	
 	private SnackIngredient snackIngredient;
 
 	@Override
@@ -22,15 +23,9 @@ public class LotOfCheeseRule implements DiscountRule {
 
 	@Override
 	public double calculateDiscount(List<SnackIngredient> snackIngredients) {
-		int discountMultiplier = 0;
-		double cheesePrice = 0d;
-		for (SnackIngredient snackIngredient : snackIngredients) {
-			if (snackIngredient.getIngredient().getId() == QUEIJO && snackIngredient.getQuantity() >= 3) {
-				discountMultiplier = snackIngredient.getQuantity() / 3;
-				cheesePrice = snackIngredient.getIngredient().getPrice();
-				break;
-			}
-		}
+		int discountMultiplier = snackIngredient.getQuantity() / 3;
+		double cheesePrice = snackIngredient.getIngredient().getPrice();
+		
 		return discountMultiplier * cheesePrice;
 	}
 
