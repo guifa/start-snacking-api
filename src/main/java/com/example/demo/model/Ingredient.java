@@ -2,11 +2,8 @@ package com.example.demo.model;
 
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 public class Ingredient {
 	
-	@JsonIgnore
 	private int id;
 	
 	@NotNull

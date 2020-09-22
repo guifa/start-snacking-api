@@ -9,6 +9,9 @@ public class SnackIngredient {
 	
 	private Ingredient ingredient;
 	
+	@JsonIgnore
+	private Snack snack;
+	
 	private int quantity;
 	
 	public int getId() {
@@ -25,6 +28,14 @@ public class SnackIngredient {
 
 	public void setIngredient(Ingredient ingredient) {
 		this.ingredient = ingredient;
+	}
+
+	public Snack getSnack() {
+		return snack;
+	}
+
+	public void setSnack(Snack snack) {
+		this.snack = snack;
 	}
 
 	public int getQuantity() {

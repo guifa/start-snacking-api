@@ -13,5 +13,4 @@ public interface SnackIngredientMapper {
 	@SelectKey(statement = "SELECT max(id) + 1 from snack_ingredient", keyProperty = "id", before = true, resultType = int.class)
 	Integer save(SnackIngredient snackIngredient);
 
-
 }
