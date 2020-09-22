@@ -2,12 +2,17 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.mapper.IngredientMapper;
 import com.example.demo.model.Ingredient;
 import com.example.demo.service.IngredientService;
 
@@ -26,8 +31,8 @@ public class IngredientController {
     }
 	
 	@PostMapping
-	public ResponseEntity<Ingredient> save(@RequestBody Ingredient ingredient) {
-		ingredientService.save(ingredient);
+	public ResponseEntity<Ingredient> save(@RequestBody Ingredient ingredient, HttpServletResponse response) {
+		ingredientService.save(ingredient, response);
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(ingredient);
 	}
