@@ -9,16 +9,13 @@ public class LightRule implements DiscountRule{
 
 	static final int ALFACE = 1;
 	static final int BACON = 2;
-	static final double TEN_PERCENT_DISCOUNT = 0.1;
-	
-	private double snackTotalPrice;
+	static final double TEN_PERCENT_DISCOUNT = 0.1;	
 	
 	@Override
 	public boolean isApplicable(List<SnackIngredient> snackIngredients) {
 		HashMap<Integer, Integer> ingredients = new HashMap<Integer, Integer>();
 		for (SnackIngredient snackIngredient : snackIngredients) {
 			ingredients.put(snackIngredient.getIngredient().getId(), snackIngredient.getQuantity());
-			this.snackTotalPrice += snackIngredient.getIngredient().getPrice() * snackIngredient.getQuantity();
 		}
 		if (ingredients.containsKey(ALFACE) && !ingredients.containsKey(BACON)) {
 			return true;
@@ -27,8 +24,8 @@ public class LightRule implements DiscountRule{
 	}
 
 	@Override
-	public double calculateDiscount(List<SnackIngredient> snackIngredients) {
-		return TEN_PERCENT_DISCOUNT * this.snackTotalPrice;
+	public double calculateDiscount(List<SnackIngredient> snackIngredients, double snackTotalPrice) {
+		return TEN_PERCENT_DISCOUNT * snackTotalPrice;
 	}
 
 }

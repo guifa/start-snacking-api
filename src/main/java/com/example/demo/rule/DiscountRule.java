@@ -8,6 +8,6 @@ public interface DiscountRule {
 	
 	boolean isApplicable(List<SnackIngredient> snackIngredients);
 	
-	double calculateDiscount(List<SnackIngredient> snackIngredients);
+	double calculateDiscount(List<SnackIngredient> snackIngredients, double snackTotalPrice);
 
 }

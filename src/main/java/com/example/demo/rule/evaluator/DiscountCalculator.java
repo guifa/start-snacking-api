@@ -22,12 +22,12 @@ public class DiscountCalculator implements DiscountEvaluator {
 	}
 
 	@Override
-	public double calculateDiscount(List<SnackIngredient> snackIngredients) {
+	public double calculateDiscount(List<SnackIngredient> snackIngredients, double snackTotalPrice) {
 		double discount = 0d;
 		
 		for (DiscountRule discountRule : rules) {
 			if (discountRule.isApplicable(snackIngredients)) {
-				discount += discountRule.calculateDiscount(snackIngredients);
+				discount += discountRule.calculateDiscount(snackIngredients, snackTotalPrice);
 			}
 		}
 		

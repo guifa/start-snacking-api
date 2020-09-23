@@ -6,6 +6,6 @@ import com.example.demo.model.SnackIngredient;
 
 public interface DiscountEvaluator {
 	
-	double calculateDiscount(List<SnackIngredient> snackIngredients);
+	double calculateDiscount(List<SnackIngredient> snackIngredients, double snackTotalPrice);
 
 }

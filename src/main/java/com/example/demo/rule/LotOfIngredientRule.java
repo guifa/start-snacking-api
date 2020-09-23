@@ -27,7 +27,7 @@ public class LotOfIngredientRule implements DiscountRule {
 	}
 
 	@Override
-	public double calculateDiscount(List<SnackIngredient> snackIngredients) {
+	public double calculateDiscount(List<SnackIngredient> snackIngredients, double snackTotalPrice) {
 		int discountMultiplier = snackIngredient.getQuantity() / 3;
 		double ingredientPrice = snackIngredient.getIngredient().getPrice();
 		

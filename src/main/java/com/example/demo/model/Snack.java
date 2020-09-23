@@ -28,14 +28,14 @@ public class Snack {
 		DiscountCalculator discountCalculator = new DiscountCalculator();
 		double totalPrice = 0d;
 		double discount = 0d;
-		
-		discount = discountCalculator.calculateDiscount(snackIngredients);
-		
+	
 		for(SnackIngredient snackIngredient: snackIngredients) {
 			if (snackIngredient.getIngredient() != null) {
 				totalPrice += snackIngredient.getIngredient().getPrice() * snackIngredient.getQuantity();
 			}
 		}
+		
+		discount = discountCalculator.calculateDiscount(snackIngredients, totalPrice);
 		
 		return totalPrice - discount;
 	}
