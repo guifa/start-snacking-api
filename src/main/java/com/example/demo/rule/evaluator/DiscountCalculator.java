@@ -33,5 +33,17 @@ public class DiscountCalculator implements DiscountEvaluator {
 		
 		return discount;
 	}
+	
+	public void addRule(DiscountRule discountRule) {
+		rules.add(discountRule);
+	}
+
+	public List<DiscountRule> getRules() {
+		return rules;
+	}
+
+	public void setRules(List<DiscountRule> rules) {
+		this.rules = rules;
+	}
 
 }

@@ -19,9 +19,14 @@ public class Snack {
 		super();
 		this.id = id;
 	}
-	
-	public Snack() {
 		
+	public Snack(List<SnackIngredient> snackIngredients) {
+		super();
+		this.snackIngredients = snackIngredients;
+	}
+
+	public Snack() {
+		super();
 	}
 
 	public double getTotalPrice() {

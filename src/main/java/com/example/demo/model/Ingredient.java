@@ -10,8 +10,18 @@ public class Ingredient {
 	private String name;
 	
 	@NotNull
-	private double price;
+	private double price;		
 	
+	public Ingredient(int id, @NotNull String name, @NotNull double price) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.price = price;
+	}
+	
+	public Ingredient() {
+
+	}
 	public int getId() {
 		return id;
 	}

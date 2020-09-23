@@ -14,6 +14,16 @@ public class SnackIngredient {
 	
 	private int quantity;
 	
+	public SnackIngredient(Ingredient ingredient, int quantity) {
+		super();
+		this.ingredient = ingredient;
+		this.quantity = quantity;
+	}
+
+	public SnackIngredient() {
+		
+	}
+	
 	public int getId() {
 		return id;
 	}
