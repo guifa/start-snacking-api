@@ -13,7 +13,7 @@ import com.example.demo.model.Ingredient;
 public interface IngredientMapper {
 	
 	@Select("select * from ingredient")
-    List<Ingredient> findAll();
+	List<Ingredient> findAll();
 	
 	@Insert("insert into ingredient(name,price) values(#{name},#{price})")
 	@SelectKey(statement = "SELECT max(id) + 1 from ingredient", keyProperty = "id", before = true, resultType = int.class)

@@ -17,7 +17,7 @@ public interface SnackMapper {
 	  @Result(property = "snackIngredients", column = "ID", many = @Many(select = "selectIngredientsForSnack"))
 	})
 	@Select("SELECT S.ID, S.NAME AS SNACK_NAME FROM SNACK S")
-    List<Snack> findAll();
+	List<Snack> findAll();
 	
 	@ResultMap("snackResultMap")
 	@Select("SELECT S.ID, S.NAME AS SNACK_NAME FROM SNACK S WHERE S.ID = #{snackId}")
