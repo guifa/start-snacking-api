@@ -46,5 +46,10 @@ values(4,4,1);
 insert into snack_ingredient(id_snack, id_ingredient, quantity)
 values(4,5,1);
 
-
+insert into sale(name,description)
+values('Light', 'Se o lanche tem alface e não tem bacon, ganha 10% de desconto.');
+insert into sale(name,description)
+values('Muita carne', 'A cada 3 porções de carne o cliente só paga 2. Se o lanche tiver 6 porções, ocliente pagará 4. Assim por diante...');
+insert into sale(name,description)
+values('Muito queijo', 'A cada 3 porções de queijo o cliente só paga 2. Se o lanche tiver 6 porções, ocliente pagará 4. Assim por diante...');
 
