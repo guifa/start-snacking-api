@@ -8,8 +8,8 @@ public class CreatedResourceEvent extends ApplicationEvent{
 
 	private static final long serialVersionUID = 1L;
 
-	private HttpServletResponse response;
-	private int resourceId;
+	private final HttpServletResponse response;
+	private final int resourceId;
 	
 	public CreatedResourceEvent(Object source, HttpServletResponse response, int resourceId) {
 		super(source);

@@ -5,22 +5,19 @@ import java.util.List;
 
 import com.example.demo.model.SnackIngredient;
 
-public class LightRule implements DiscountRule{
+public class HealthyRule implements DiscountRule{
 
-	static final int ALFACE = 1;
-	static final int BACON = 2;
+	static final String LETTUCE = "Alface";
+	static final String BACON = "Bacon";
 	static final double TEN_PERCENT_DISCOUNT = 0.1;	
 	
 	@Override
 	public boolean isApplicable(List<SnackIngredient> snackIngredients) {
-		HashMap<Integer, Integer> ingredients = new HashMap<Integer, Integer>();
+		HashMap<String, Integer> ingredients = new HashMap<>();
 		for (SnackIngredient snackIngredient : snackIngredients) {
-			ingredients.put(snackIngredient.getIngredient().getId(), snackIngredient.getQuantity());
+			ingredients.put(snackIngredient.getIngredient().getName(), snackIngredient.getQuantity());
 		}
-		if (ingredients.containsKey(ALFACE) && !ingredients.containsKey(BACON)) {
-			return true;
-		}
-		return false;
+		return ingredients.containsKey(LETTUCE) && !ingredients.containsKey(BACON);
 	}
 
 	@Override

@@ -14,25 +14,16 @@ public class Snack {
 	private String name;
 	
 	private List<SnackIngredient> snackIngredients;
-	
-	public Snack(int id) {
-		super();
-		this.id = id;
-	}
 		
 	public Snack(List<SnackIngredient> snackIngredients) {
 		super();
 		this.snackIngredients = snackIngredients;
 	}
 
-	public Snack() {
-		super();
-	}
-
 	public double getTotalPrice() {
 		DiscountCalculator discountCalculator = new DiscountCalculator();
 		double totalPrice = 0d;
-		double discount = 0d;
+		double discount;
 	
 		for(SnackIngredient snackIngredient: snackIngredients) {
 			if (snackIngredient.getIngredient() != null) {
@@ -82,9 +73,7 @@ public class Snack {
 		if (getClass() != obj.getClass())
 			return false;
 		Snack other = (Snack) obj;
-		if (id != other.id)
-			return false;
-		return true;
+		return id == other.id;
 	}
 	
 }

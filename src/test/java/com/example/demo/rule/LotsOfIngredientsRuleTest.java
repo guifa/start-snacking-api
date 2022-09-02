@@ -14,17 +14,17 @@ import org.junit.jupiter.api.TestInstance;
 import com.example.demo.model.Ingredient;
 import com.example.demo.model.SnackIngredient;
 
-class LotOfIngredientRuleTest {
+class LotsOfIngredientsRuleTest {
 	
 	static final int INGREDIENT_WITH_DISCOUNT_ID = 3;
 
-	LotOfIngredientRule lotOfIngredientRule = new LotOfIngredientRule(INGREDIENT_WITH_DISCOUNT_ID);
+	LotsOfIngredientsRule lotsOfIngredientsRule = new LotsOfIngredientsRule(INGREDIENT_WITH_DISCOUNT_ID);
 	List<SnackIngredient> snackIngredients;
 	
 	void createSnackIngredients(int quantity) {
 		snackIngredients = new ArrayList<SnackIngredient>();
 		
-		Ingredient lettuce = new Ingredient(1, "Lettuce", 0.4);
+		Ingredient lettuce = new Ingredient(1, "Alface", 0.4);
 		SnackIngredient snackLettuce = new SnackIngredient(lettuce, 1);
 		snackIngredients.add(snackLettuce);
 		
@@ -44,7 +44,7 @@ class LotOfIngredientRuleTest {
 		@Test
 		@DisplayName("Will give discount?")
 		void testIsApplicable() {
-			assertFalse(lotOfIngredientRule.isApplicable(snackIngredients));
+			assertFalse(lotsOfIngredientsRule.isApplicable(snackIngredients));
 		}
 
 	}
@@ -60,7 +60,7 @@ class LotOfIngredientRuleTest {
 		@Test
 		@DisplayName("Will give discount?")
 		void testIsApplicable() {
-			assertFalse(lotOfIngredientRule.isApplicable(snackIngredients));
+			assertFalse(lotsOfIngredientsRule.isApplicable(snackIngredients));
 		}
 
 	}
@@ -77,13 +77,13 @@ class LotOfIngredientRuleTest {
 		@Test
 		@DisplayName("Will give discount?")
 		void testIsApplicable() {
-			assertTrue(lotOfIngredientRule.isApplicable(snackIngredients));
+			assertTrue(lotsOfIngredientsRule.isApplicable(snackIngredients));
 		}
 		
 		@Test
 		@DisplayName("Calculate discount")
 		void testCalculateDiscount() {
-			assertEquals(3, lotOfIngredientRule.calculateDiscount(snackIngredients, 9.4));
+			assertEquals(3, lotsOfIngredientsRule.calculateDiscount(snackIngredients, 9.4));
 		}
 
 	}
@@ -100,13 +100,13 @@ class LotOfIngredientRuleTest {
 		@Test
 		@DisplayName("Will give discount?")
 		void testIsApplicable() {
-			assertTrue(lotOfIngredientRule.isApplicable(snackIngredients));
+			assertTrue(lotsOfIngredientsRule.isApplicable(snackIngredients));
 		}
 		
 		@Test
 		@DisplayName("Calculate discount")
 		void testCalculateDiscount() {
-			assertEquals(6, lotOfIngredientRule.calculateDiscount(snackIngredients, 9.4));
+			assertEquals(6, lotsOfIngredientsRule.calculateDiscount(snackIngredients, 9.4));
 		}
 
 	}

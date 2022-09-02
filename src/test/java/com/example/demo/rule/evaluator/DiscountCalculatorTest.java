@@ -12,6 +12,9 @@ import com.example.demo.rule.*;
 
 class DiscountCalculatorTest {
 
+	public static final String LETTUCE = "Alface";
+	public static final String MEAT = "Meat";
+	public static final String CHEESE = "Cheese";
 	DiscountCalculator discountCalculator = new DiscountCalculator();
 	List<SnackIngredient> snackIngredients;
 	
@@ -22,15 +25,15 @@ class DiscountCalculatorTest {
         void createSnackIngredientsList() {
 			snackIngredients = new ArrayList<SnackIngredient>();
 			
-			Ingredient lettuce = new Ingredient(1, "Lettuce", 0.4);
+			Ingredient lettuce = new Ingredient(1, LETTUCE, 0.4);
 			SnackIngredient snackLettuce = new SnackIngredient(lettuce, 1);
 			snackIngredients.add(snackLettuce);
 			
-			Ingredient meat = new Ingredient(3, "Meat", 3d);
+			Ingredient meat = new Ingredient(3, MEAT, 3d);
 			SnackIngredient snackMeat = new SnackIngredient(meat, 3);
 			snackIngredients.add(snackMeat);
 			
-			Ingredient cheese = new Ingredient(5, "Cheese", 1.5);
+			Ingredient cheese = new Ingredient(5, CHEESE, 1.5);
 			SnackIngredient snackCheese = new SnackIngredient(cheese, 3);
 			snackIngredients.add(snackCheese);
 			
@@ -52,15 +55,15 @@ class DiscountCalculatorTest {
         void createSnackIngredientsList() {
 			snackIngredients = new ArrayList<SnackIngredient>();
 			
-			Ingredient lettuce = new Ingredient(1, "Lettuce", 0.4);
+			Ingredient lettuce = new Ingredient(1, LETTUCE, 0.4);
 			SnackIngredient snackLettuce = new SnackIngredient(lettuce, 1);
 			snackIngredients.add(snackLettuce);
 			
-			Ingredient meat = new Ingredient(3, "Meat", 3d);
+			Ingredient meat = new Ingredient(3, MEAT, 3d);
 			SnackIngredient snackMeat = new SnackIngredient(meat, 3);
 			snackIngredients.add(snackMeat);
 			
-			Ingredient cheese = new Ingredient(5, "Cheese", 1.5);
+			Ingredient cheese = new Ingredient(5, CHEESE, 1.5);
 			SnackIngredient snackCheese = new SnackIngredient(cheese, 6);
 			snackIngredients.add(snackCheese);
 			

@@ -1,31 +1,26 @@
 package com.example.demo.controller;
 
-import java.util.List;
+import com.example.demo.model.Ingredient;
+import com.example.demo.service.IngredientService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.example.demo.model.Ingredient;
-import com.example.demo.service.IngredientService;
+import java.util.List;
 
 @RestController
 @RequestMapping("/ingredients")
 @CrossOrigin
 public class IngredientController {
 	
-	@Autowired
-	private IngredientService ingredientService;
-	
+	private final IngredientService ingredientService;
+
+	public IngredientController(IngredientService ingredientService) {
+		this.ingredientService = ingredientService;
+	}
+
 	@GetMapping
 	public ResponseEntity<List<Ingredient>> findAll() {
         List<Ingredient> ingredients = ingredientService.findAll();
