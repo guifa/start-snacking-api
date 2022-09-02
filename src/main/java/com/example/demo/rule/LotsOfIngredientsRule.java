@@ -4,13 +4,13 @@ import java.util.List;
 
 import com.example.demo.model.SnackIngredient;
 
-public class LotOfIngredientRule implements DiscountRule {
+public class LotsOfIngredientsRule implements DiscountRule {
 	
-	private int ingredientId;
+	private final int ingredientId;
 	
 	private SnackIngredient snackIngredient;
 	
-	public LotOfIngredientRule(int ingredientId) {
+	public LotsOfIngredientsRule(int ingredientId) {
 		super();
 		this.ingredientId = ingredientId;
 	}

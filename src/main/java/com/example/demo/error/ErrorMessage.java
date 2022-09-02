@@ -2,8 +2,8 @@ package com.example.demo.error;
 
 public class ErrorMessage {
 	
-	private String userMessage;
-	private String debugMessage;
+	private final String userMessage;
+	private final String debugMessage;
 	
 	public ErrorMessage(String userMessage, String debugMessage) {
 		this.userMessage = userMessage;

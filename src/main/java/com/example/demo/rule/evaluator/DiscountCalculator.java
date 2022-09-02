@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.example.demo.model.SnackIngredient;
 import com.example.demo.rule.DiscountRule;
-import com.example.demo.rule.LightRule;
-import com.example.demo.rule.LotOfIngredientRule;
+import com.example.demo.rule.HealthyRule;
+import com.example.demo.rule.LotsOfIngredientsRule;
 
 public class DiscountCalculator implements DiscountEvaluator {
 	
@@ -16,9 +16,9 @@ public class DiscountCalculator implements DiscountEvaluator {
 	List<DiscountRule> rules = new ArrayList<DiscountRule>();
 	
 	public DiscountCalculator() {
-		rules.add(new LightRule());
-		rules.add(new LotOfIngredientRule(CHEESE));
-		rules.add(new LotOfIngredientRule(MEAT));
+		rules.add(new HealthyRule());
+		rules.add(new LotsOfIngredientsRule(CHEESE));
+		rules.add(new LotsOfIngredientsRule(MEAT));
 	}
 
 	@Override

@@ -13,9 +13,9 @@ import org.junit.jupiter.api.Test;
 import com.example.demo.model.Ingredient;
 import com.example.demo.model.SnackIngredient;
 
-class LightRuleTest {
+class HealthyRuleTest {
 	
-	LightRule lightRule = new LightRule();
+	HealthyRule healthyRule = new HealthyRule();
 	List<SnackIngredient> snackIngredients;
 	
 	@Nested
@@ -25,7 +25,7 @@ class LightRuleTest {
         void createSnackIngredientsList() {
 			snackIngredients = new ArrayList<SnackIngredient>();
 			
-			Ingredient lettuce = new Ingredient(1, "Lettuce", 0.4);
+			Ingredient lettuce = new Ingredient(1, "Alface", 0.4);
 			SnackIngredient snackLettuce = new SnackIngredient(lettuce, 1);
 			snackIngredients.add(snackLettuce);
 			
@@ -37,7 +37,7 @@ class LightRuleTest {
 		@Test
 		@DisplayName("Will give discount?")
 		void testIsApplicable() {
-			assertFalse(lightRule.isApplicable(snackIngredients));
+			assertFalse(healthyRule.isApplicable(snackIngredients));
 		}
 
 	}
@@ -49,7 +49,7 @@ class LightRuleTest {
         void createSnackIngredientsList() {
 			snackIngredients = new ArrayList<SnackIngredient>();
 			
-			Ingredient lettuce = new Ingredient(1, "Lettuce", 0.4);
+			Ingredient lettuce = new Ingredient(1, "Alface", 0.4);
 			SnackIngredient snackLettuce = new SnackIngredient(lettuce, 1);
 			snackIngredients.add(snackLettuce);
 			
@@ -61,13 +61,13 @@ class LightRuleTest {
 		@Test
 		@DisplayName("Will give discount?")
 		void testIsApplicable() {
-			assertTrue(lightRule.isApplicable(snackIngredients));
+			assertTrue(healthyRule.isApplicable(snackIngredients));
 		}
 
 		@Test
 		@DisplayName("Calculate discount")
 		void testCalculateDiscount() {
-			assertEquals(0.34, lightRule.calculateDiscount(snackIngredients, 3.4));
+			assertEquals(0.34, healthyRule.calculateDiscount(snackIngredients, 3.4));
 		}
 	}
 	
